@@ -1,0 +1,268 @@
+@mixin flex($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+}
+
+@mixin card($bgcolor: hsl(235, 46%, 20%), $padding: 20px) {
+	padding: $padding;
+	border-radius: 13px;
+	background-color: $bgcolor;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: hsl(226, 43%, 10%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	font-family: "Rubik", sans-serif;
+}
+
+main {
+	@include flex(row);
+	width: 80%;
+	justify-content: center;
+}
+
+.left {
+	@include flex($direction: column);
+	@include card(hsl(235, 46%, 20%));
+	padding: 0px;
+	width: 20%;
+	.profile {
+		@include flex($direction: column);
+		@include card($bgcolor: hsl(246, 80%, 60%));
+		padding: 20px 50px 20px 20px;
+
+		img {
+			height: 65px;
+			width: 65px;
+			border: 2px solid white;
+			border-radius: 100%;
+		}
+
+		.text {
+			@include flex($direction: column);
+
+			p:nth-child(1) {
+				margin: 30px 0px 5px 0px;
+				color: hsl(236, 100%, 87%);
+				font-size: 13px;
+			}
+
+			p:nth-child(2) {
+				margin: 5px 0px 25px 0px;
+				color: white;
+				font-size: 30px;
+				font-weight: 300;
+			}
+		}
+	}
+
+	.options {
+		@include flex($direction: column);
+		@include card(hsl(235, 46%, 20%));
+
+		p {
+			font-size: 16px;
+			margin: 8px 0px;
+			font-weight: 400;
+		}
+
+		p.active {
+			color: white;
+		}
+
+		p.inactive {
+			color: hsl(236, 100%, 87%);
+		}
+	}
+}
+
+.right {
+	display: grid;
+	grid-template-columns: 32% 32% 32%;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	padding: 0px 20px;
+	width: 70%;
+
+	.work {
+		@include card(hsl(15, 100%, 70%), 0);
+		background-image: url(./images/icon-work.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+
+	.play {
+		@include card(hsl(195, 74%, 62%), 0);
+		background-image: url(./images/icon-play.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+	.study {
+		@include card(hsl(348, 100%, 68%), 0);
+		background-image: url(./images/icon-study.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+	.exercise {
+		@include card(hsl(145, 58%, 55%), 0);
+		background-image: url(./images/icon-exercise.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+	.social {
+		@include card(hsl(264, 64%, 52%), 0);
+		background-image: url(./images/icon-social.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+	.selfcare {
+		@include card(hsl(43, 84%, 65%), 0);
+		background-image: url(./images/icon-self-care.svg);
+		background-position: right -15px;
+		display: flex;
+	}
+
+	.bg {
+		padding: 45px 0px 0px 0px;
+		background-repeat: no-repeat;
+		display: flex;
+
+		div {
+			width: 100%;
+			@include flex(column);
+			@include card(hsl(235, 46%, 20%), 5px);
+			padding: 2px 15px 12px 10px;
+
+			div:nth-child(1) {
+				@include flex(row);
+				p {
+					font-size: 18px;
+					color: white;
+					font-weight: 400;
+					padding: 0px 20px 0px 0px;
+				}
+				justify-content: space-between;
+				align-items: center;
+
+				img {
+					height: 4px;
+					width: 19px;
+				}
+			}
+
+			div:nth-child(2) {
+				display: flex;
+				p:nth-child(1) {
+					font-size: 46px;
+					color: white;
+					font-weight: 300;
+					margin: 15px 10px 5px 5px;
+					display: flex;
+				}
+
+				p:nth-child(2) {
+					font-size: 15px;
+					color: hsl(236, 100%, 87%);
+					font-weight: 300;
+					margin: 2px 10px 5px 5px;
+					display: flex;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
+	main {
+		@include flex(column);
+		width: 90%;
+		align-items: center;
+		justify-content: center;
+		height: inherit;
+		padding: 60px 0px;
+		.left {
+			width: 90%;
+			margin: 40px 0px 20px 0px;
+
+			.profile {
+				img {
+					height: 60px;
+					width: 60px;
+				}
+
+				@include flex(row);
+				align-items: center;
+				padding: 40px 10px 40px 10px;
+
+				.text {
+					padding: 0px 10px;
+					p:nth-child(1) {
+						margin: 0px 0px 5px 0px;
+					}
+
+					p:nth-child(2) {
+						margin: 0px 0px 0px 0px;
+						font-size: 25px;
+					}
+				}
+			}
+
+			.options {
+				@include flex($direction: row);
+				justify-content: space-evenly;
+
+				p {
+					font-size: 19px;
+				}
+			}
+		}
+
+		.right {
+			@include flex(column);
+			width: 100%;
+			height: 70%;
+			margin: 0px 0px 60px 0px;
+
+			.bg {
+				flex-direction: row;
+				div {
+					padding: 8px 12px 0px 12px;
+					div:nth-child(1) {
+						@include flex(row);
+						p {
+							font-size: 18px;
+							padding: 0px 20px 0px 0px;
+							margin: 0px;
+						}
+						justify-content: space-between;
+						align-items: center;
+					}
+					div:nth-child(2) {
+						flex-direction: row;
+						align-items: center;
+						justify-content: space-between;
+						padding: 5px 8px 5px 8px;
+						p:nth-child(1) {
+							font-size: 35px;
+							margin: 0px;
+						}
+
+						p:nth-child(2) {
+							font-size: 15px;
+							margin: 0px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
