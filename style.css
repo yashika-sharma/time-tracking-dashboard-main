@@ -67,13 +67,11 @@ main {
     .left .options button.active {
       color: white;
       background-color: transparent;
-      border: none;
-      font-size: 16px; }
+      border: none; }
     .left .options button.inactive {
       color: #bdc1ff;
       background-color: transparent;
-      border: none;
-      font-size: 16px; }
+      border: none; }
 
 .right {
   display: grid;
