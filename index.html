@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Time tracking dashboard</title>
 
-
 </head>
 
 <body>
@@ -28,14 +27,12 @@
           <p> Jeremy Robson
           </p>
         </div>
-
-
       </div>
 
       <div class="options">
-        <p class="inactive">Daily</p>
-        <p class="inactive">Weekly</p>
-        <p class="inactive">Monthly</p>
+        <button id="daily" onclick="handleDaily()" class="inactive">Daily</button>
+        <button id="weekly" onclick="handleWeekly()" class="inactive">Weekly</button>
+        <button id="monthly" onclick="handleMonthly()" class="inactive">Monthly</button>
       </div>
 
 
@@ -50,8 +47,8 @@
             <img src="./images/icon-ellipsis.svg" alt="ellipses" />
           </div>
           <div>
-            <p>36hrs</p>
-            <p>Last Week - 32hrs</p>
+            <p class="current">36hrs</p>
+            <p class="previous">Last Week - 32hrs</p>
           </div>
 
         </div>
@@ -65,8 +62,8 @@
 
           </div>
           <div>
-            <p>10hrs</p>
-            <p>Last Week - 8hrs</p>
+            <p class="current">10hrs</p>
+            <p class="previous">Last Week - 8hrs</p>
           </div>
         </div>
       </div>
@@ -78,8 +75,8 @@
 
           </div>
           <div>
-            <p>4hrs</p>
-            <p>Last Week - 7hrs</p>
+            <p class="current">4hrs</p>
+            <p class="previous">Last Week - 7hrs</p>
           </div>
         </div>
       </div>
@@ -95,8 +92,8 @@
 
           </div>
           <div>
-            <p>4hrs</p>
-            <p>Last Week - 5hrs</p>
+            <p class="current">4hrs</p>
+            <p class="previous">Last Week - 5hrs</p>
           </div>
         </div>
       </div>
@@ -111,8 +108,8 @@
 
           </div>
           <div>
-            <p>5hrs</p>
-            <p>Last Week - 10hrs</p>
+            <p class="current">5hrs</p>
+            <p class="previous">Last Week - 10hrs</p>
           </div>
         </div>
       </div>
@@ -124,8 +121,8 @@
 
           </div>
           <div>
-            <p>2hrs</p>
-            <p>Last Week - 2hrs</p>
+            <p class="current">2hrs</p>
+            <p class="previous">Last Week - 2hrs</p>
           </div>
         </div>
       </div>
@@ -134,7 +131,8 @@
     </div>
 
   </main>
-
+  <script type="text/javascript" src="/data.json"></script>
+  <script type="text/javascript" src="/script.js"></script>
 
 </body>
 
